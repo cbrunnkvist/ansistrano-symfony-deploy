@@ -1,3 +1,16 @@
 ---
 dependencies:
   - { role: carlosbuenosvinos.ansistrano-deploy }
+
+galaxy_info:
+  author: Conny Brunnkvist
+  description: Common post-deploy tasks for Symfony projects
+  license: MIT
+  min_ansible_version: 1.8
+  platforms:
+    - name: GenericUNIX
+      versions:
+        - any
+
+  categories:
+    - web
