@@ -1,0 +1,2 @@
+---
+ansistrano_after_update_code_tasks_file: "../../cbrunnkvist.ansistrano-symfony-deploy/config/after_update_code.yml"

@@ -1,0 +1,5 @@
+---
+symfony_env: prod
+symfony_php_path: php
+symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
+symfony_composer_opts: '--no-dev --optimize-autoloader --no-interaction'
