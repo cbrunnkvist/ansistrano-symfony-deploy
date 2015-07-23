@@ -14,4 +14,4 @@
 
 - name: Run composer install
   shell: chdir={{ansistrano_release_path.stdout}}
-    export SYMFONY_ENV={{symfony_env}} && {{symfony_php_path}} {{symfony_composer_path}} install {{symfony_composer_opts}}
+    export SYMFONY_ENV={{symfony_env}} && {{symfony_php_path}} {{symfony_composer_path}} install {{symfony_composer_options}}
