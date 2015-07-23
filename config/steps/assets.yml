@@ -1,0 +1,6 @@
+---
+- name: Dump assets.
+  shell: chdir={{ansistrano_release_path.stdout}}
+    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console assetic:dump {{ symfony_asset_options }}
+  register: dump_assets
+  when: symfony_run_dump_assets

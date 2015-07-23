@@ -1,16 +1,3 @@
 ---
-- name: Check for composer.phar
-  stat: path={{ansistrano_deploy_to}}/composer.phar
-  register: composer_file
-
-- name: Run composer self-update
-  shell: "{{ansistrano_deploy_to}}/composer.phar selfupdate"
-  when: composer_file.stat.exists == true
-
-- name: Install composer
-  get_url: url=https://getcomposer.org/composer.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no
-  when: composer_file.stat.exists == false
-
-- name: Run composer install
-  shell: chdir={{ansistrano_release_path.stdout}}
-    export SYMFONY_ENV={{symfony_env}} && {{symfony_php_path}} {{symfony_composer_path}} install {{symfony_composer_opts}}
+- include: steps/composer.yml
+- include: steps/assets.yml
