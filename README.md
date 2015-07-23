@@ -23,12 +23,19 @@ The `defaults` vars declared in this module:
 symfony_env: prod
 symfony_php_path: php # The PHP executable to use for all command line tasks
 
+symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
-symfony_composer_opts: '--no-dev --optimize-autoloader --no-interaction'
+symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
 
-symfony_asset_options: ''
-symfony_run_dump_assets: true
+symfony_run_assets_install: true
+symfony_assets_options: '--no-interaction'
+
+symfony_run_assetic_dump: true
+symfony_assetic_options: '--no-interaction'
+
+symfony_run_cache_clear_and_warmup: true
+symfony_cache_options: ''
 ```
 
 In addition to this, please also refer to the [list of variables used by ansistrano](https://github.com/ansistrano/deploy#role-variables).
