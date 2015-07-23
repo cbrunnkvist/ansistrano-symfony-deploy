@@ -1,7 +1,7 @@
 ansistrano-symfony-deploy
 =========
 
-A set of tasks for deploying PHP applications developed using the Symfony framework onto *nix servers in a "Capistrano" fashion (releases, shared, current->releases/X).
+A set of [Ansible](http://docs.ansible.com/) tasks for deploying PHP applications developed using the Symfony framework onto *nix servers in a "Capistrano" fashion (releases, shared, current->releases/X).
 
 This role is more or less just a collection of the most common post-installation setup tasks (i.e. getting a Composer executable, installing dependencies and autoloader, perform cache warming, deploy migrations etc). It does not itself deal with setting up the directory structures or getting files onto your servers - that part is handled by the more generic `ansistrano-deploy` role.
 
@@ -17,7 +17,7 @@ The tasks will _probably not_ work for Windows target hosts (untested).
 Role Variables
 --------------
 
-The `defaults` vars:
+The `defaults` vars declared in this module:
 
 ```YAML
 symfony_env: prod
@@ -26,7 +26,7 @@ symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_opts: '--no-dev --optimize-autoloader --no-interaction'
 ```
 
-Again, see the [list of variables used by ansistrano](https://github.com/ansistrano/deploy#role-variables).
+In addition to this, please also refer to the [list of variables used by ansistrano](https://github.com/ansistrano/deploy#role-variables).
 
 Dependencies
 ------------
