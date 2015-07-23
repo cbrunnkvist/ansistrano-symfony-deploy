@@ -1,0 +1,4 @@
+---
+- name: Update MongoDB schema
+  shell: chdir={{ansistrano_release_path.stdout}}
+    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console doctrine:mongodb:schema:update {{symfony_mongodb_options}}

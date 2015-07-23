@@ -13,3 +13,6 @@
 
 - include: steps/doctrine.yml
   when: symfony_run_doctrine_migrations
+
+- include: steps/mongodb.yml
+  when: symfony_run_mongodb_schema_update
