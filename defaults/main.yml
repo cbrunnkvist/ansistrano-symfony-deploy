@@ -12,3 +12,6 @@ symfony_assets_options: '--no-interaction'
 
 symfony_run_assetic_dump: true
 symfony_assetic_options: '--no-interaction'
+
+symfony_run_cache_clear_and_warmup: true
+symfony_cache_options: ''

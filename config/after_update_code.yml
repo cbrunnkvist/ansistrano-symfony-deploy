@@ -7,3 +7,6 @@
 
 - include: steps/assetic.yml
   when: symfony_run_assetic_dump
+
+- include: steps/cache.yml
+  when: symfony_run_cache_clear_and_warmup
