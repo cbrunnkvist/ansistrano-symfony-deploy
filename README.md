@@ -65,9 +65,29 @@ Dependencies
 
 - [carlosbuenosvinos.ansistrano-deploy](https://galaxy.ansible.com/list#/roles/1387)
 
-Invoking via `ansible-galaxy install cbrunnkvist.ansistrano-symfony-deploy` should also pull down the aforementioned role as a dependency.
+Installing from the command line via `ansible-galaxy install cbrunnkvist.ansistrano-symfony-deploy` should pull down the external role as a dependency, so no extra step neccessary.
 
-As a bare minimum, you probably need to declare the `ansistrano_deploy_from` and `ansistrano_deploy_to` variables in your play.
+Example playbook
+----------------
+
+As a bare minimum, you probably need to declare the `ansistrano_deploy_from` and `ansistrano_deploy_to` variables in your play. Ansistrano defaults to using rsync from a local directory (again, see the [ansistrano docs](https://github.com/ansistrano/deploy)).
+
+Let's assume there is a `my-app-infrastructure/deploy.yml`:
+```YAML
+---
+- hosts: all
+  gather_facts: false
+  vars:
+    ansistrano_deploy_from: ../my-project-checkout
+    ansistrano_deploy_to: /home/app-user/my-project-deploy/
+    ansistrano_before_symlink_tasks_file: config/app_specific_setup.yml
+  roles:
+    - cbrunnkvist.ansistrano-symfony-deploy
+```
+
+This playbook should be executed like any other, i.e. `ansible-playbook -i some_hosts_file deploy.yml`.
+
+It probably makes sense to keep your one-off system prep tasks in a separate playbook, e.g. `my-app-infrastructure/setup.yml`.
 
 License
 -------
