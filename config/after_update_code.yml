@@ -10,3 +10,6 @@
 
 - include: steps/cache.yml
   when: symfony_run_cache_clear_and_warmup
+
+- include: steps/doctrine.yml
+  when: symfony_run_doctrine_migrations

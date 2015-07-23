@@ -36,6 +36,9 @@ symfony_assetic_options: '--no-interaction'
 
 symfony_run_cache_clear_and_warmup: true
 symfony_cache_options: ''
+
+symfony_run_doctrine_migrations: true
+symfony_doctrine_options: '--no-interaction'
 ```
 
 In addition to this, please also refer to the [list of variables used by ansistrano](https://github.com/ansistrano/deploy#role-variables).
