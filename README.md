@@ -37,11 +37,28 @@ symfony_assetic_options: '--no-interaction'
 symfony_run_cache_clear_and_warmup: true
 symfony_cache_options: ''
 
-symfony_run_doctrine_migrations: true
+###############################################################################
+symfony_run_doctrine_migrations: false
 symfony_doctrine_options: '--no-interaction'
+
+symfony_run_mongodb_schema_update: false
+symfony_mongodb_options: ''
 ```
 
 In addition to this, please also refer to the [list of variables used by ansistrano](https://github.com/ansistrano/deploy#role-variables).
+
+Note about ORM/ODM schema migrations
+------------------------------------
+
+Database schema migrations can generally NOT be run in parallel across multiple hosts! For this reason, the `symfony_run_doctrine_migrations` and `symfony_run_mongodb_schema_update` options both come turned off by default.
+
+In order to get around the parallel exection, you can do the following:
+
+1. Specify your own `ansistrano_before_symlink_tasks_file`, perhaps with the one in this project as a template (look in cbrunnkvist.ansistrano-symfony-deploy/config/steps/).
+2. Pick one of the following approaches:
+  - (a) Organize hosts into groups such that the task will run on only the _first_ host in some group:
+    `when: groups['www-production'][0] == inventory_hostname`
+  - (b) Use the `run_once: true` perhaps with `delegate_to: some_primary_host` ([Docs: Playbook delegation](http://docs.ansible.com/ansible/playbooks_delegation.html#run-once))
 
 Dependencies
 ------------
