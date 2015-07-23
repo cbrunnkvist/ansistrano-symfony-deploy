@@ -1,3 +1,4 @@
 ---
 - include: steps/composer.yml
 - include: steps/assets.yml
+- include: steps/assetic.yml
