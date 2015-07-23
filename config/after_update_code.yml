@@ -1,4 +1,9 @@
 ---
 - include: steps/composer.yml
+  when: symfony_run_composer
+
 - include: steps/assets.yml
+  when: symfony_run_assets_install
+
 - include: steps/assetic.yml
+  when: symfony_run_assetic_dump
