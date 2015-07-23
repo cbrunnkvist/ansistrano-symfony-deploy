@@ -1,8 +1,8 @@
 ---
 - name: Clear cache
   shell: chdir={{ansistrano_release_path.stdout}}
-    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console cache:clear --no-warmup {{symfony_cache_opts}}
+    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console cache:clear --no-warmup {{symfony_cache_options}}
 
 - name: Warm-up cache
   shell: chdir={{ansistrano_release_path.stdout}}
-    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console cache:warmup {{symfony_cache_opts}}
+    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console cache:warmup {{symfony_cache_options}}
