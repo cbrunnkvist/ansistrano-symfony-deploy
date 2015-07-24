@@ -7,6 +7,8 @@ This role is more or less just a collection of the most common post-installation
 
 The way this is implemented is by defining a couple of the `ansistrano_(before|after)_X` vars (see the [ansistrano docs](https://github.com/ansistrano/deploy#main-workflow) for details).
 
+[![Build Status](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy.svg?branch=master)](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy) 
+
 Requirements
 ------------
 
