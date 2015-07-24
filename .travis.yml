@@ -12,7 +12,7 @@ cache:
   - $HOME/virtualenv
   - $HOME/.composer
 install:
-  - pip install ansible
+  - pip install ansible --upgrade
   - ANSIBLE_CONFIG=tests/ansible.cfg ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
   - ln -s `pwd` ../cbrunnkvist.ansistrano-symfony-deploy
 
