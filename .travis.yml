@@ -1,0 +1,20 @@
+---
+language: python
+python: "2.7"
+sudo: false
+addons:
+  apt:
+    packages:
+    - php5-cli
+    - php5-curl
+cache:
+  directories:
+  - $HOME/virtualenv
+
+install:
+  - pip install ansible
+  - ANSIBLE_CONFIG=tests/ansible.cfg ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
+  - ln -s `pwd` ../cbrunnkvist.ansistrano-symfony-deploy
+
+script:
+  - tests/run.sh
