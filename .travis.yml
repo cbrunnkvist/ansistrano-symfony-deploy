@@ -6,6 +6,9 @@ addons:
   apt:
     packages:
     - php5-cli
+cache:
+  directories:
+  - $HOME/virtualenv
 
 install:
   - pip install ansible
