@@ -10,7 +10,7 @@ addons:
 cache:
   directories:
   - $HOME/virtualenv
-
+  - $HOME/.composer
 install:
   - pip install ansible
   - ANSIBLE_CONFIG=tests/ansible.cfg ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
