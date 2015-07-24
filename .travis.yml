@@ -9,6 +9,7 @@ before_install:
 install:
   - pip install ansible
   - ANSIBLE_CONFIG=tests/ansible.cfg ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
+  - ln -s `pwd` ../cbrunnkvist.ansistrano-symfony-deploy
 
 script:
   - tests/run.sh
