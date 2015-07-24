@@ -80,7 +80,7 @@ Let's assume there is a `my-app-infrastructure/deploy.yml`:
   vars:
     ansistrano_deploy_from: ../my-project-checkout
     ansistrano_deploy_to: /home/app-user/my-project-deploy/
-    ansistrano_before_symlink_tasks_file: config/app_specific_setup.yml
+    ansistrano_before_symlink_tasks_file: "{{playbook_dir}}/config/app_specific_setup.yml"
   roles:
     - cbrunnkvist.ansistrano-symfony-deploy
 ```
