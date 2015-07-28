@@ -1,2 +1,3 @@
 ---
 ansistrano_after_update_code_tasks_file: "../../cbrunnkvist.ansistrano-symfony-deploy/config/after_update_code.yml"
+ansistrano_after_symlink_shared_tasks_file: "../../cbrunnkvist.ansistrano-symfony-deploy/config/after_symlink_shared.yml"
