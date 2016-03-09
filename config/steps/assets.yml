@@ -1,4 +1,4 @@
 ---
 - name: Install assets
   shell: chdir={{ansistrano_release_path.stdout}}
-    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} app/console assets:install {{ symfony_assets_options }}
+    SYMFONY_ENV={{symfony_env}} {{symfony_php_path}} {{symfony_console_path}} assets:install {{ symfony_assets_options }}
