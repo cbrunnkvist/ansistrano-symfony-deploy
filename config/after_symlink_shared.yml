@@ -1,17 +1,17 @@
-- include: steps/composer.yml
+- include: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/composer.yml"
   when: symfony_run_composer
 
-- include: steps/assets.yml
+- include: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/assets.yml"
   when: symfony_run_assets_install
 
-- include: steps/assetic.yml
+- include: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/assetic.yml"
   when: symfony_run_assetic_dump
 
-- include: steps/cache.yml
+- include: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/cache.yml"
   when: symfony_run_cache_clear_and_warmup
 
-- include: steps/doctrine.yml
+- include: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/doctrine.yml"
   when: symfony_run_doctrine_migrations
 
-- include: steps/mongodb.yml
+- include: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/mongodb.yml"
   when: symfony_run_mongodb_schema_update
