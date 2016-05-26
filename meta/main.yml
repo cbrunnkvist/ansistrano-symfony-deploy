@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - { role: carlosbuenosvinos.ansistrano-deploy }
+  - carlosbuenosvinos.ansistrano-deploy
 
 galaxy_info:
   author: Conny Brunnkvist
