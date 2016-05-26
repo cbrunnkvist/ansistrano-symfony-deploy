@@ -7,18 +7,21 @@ addons:
     packages:
     - php5-cli
     - php5-curl
+    - python-pip
 cache:
   directories:
   - $HOME/virtualenv
   - $HOME/.composer
 install:
   - pip install ansible --upgrade
-  - ANSIBLE_CONFIG=tests/ansible.cfg ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
+  - ansible --version
+  - ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
   - ln -s `pwd` ../cbrunnkvist.ansistrano-symfony-deploy
 
 script:
-  - tests/run.sh
+  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+  - ansible-playbook tests/test.yml -i tests/inventory
 
 notifications:
-    webhooks: https://galaxy.ansible.com/api/v1/notifications/
-
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
