@@ -23,6 +23,8 @@ The `defaults` vars declared in this module:
 symfony_env: prod
 symfony_php_path: php # The PHP executable to use for all command line tasks
 
+symfony_console_path: 'app/console' # If using Symfony 3+ this should be 'bin/console'
+
 symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
