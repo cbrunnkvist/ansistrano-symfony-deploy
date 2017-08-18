@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   roles:
-    - cbrunnkvist.ansistrano-symfony-deploy
+    - eheuje.ansistrano-symfony-deploy
 
   vars:
     ansistrano_deploy_to: /tmp/test_app
