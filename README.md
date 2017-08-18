@@ -29,6 +29,7 @@ symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
+symfony_composer_environment: [] # Symfony default composer.json comes with command Incenteev\\ParameterHandler\\ScriptHandler::buildParameters which can use environment variables to build the parameters.yml file (see https://github.com/Incenteev/ParameterHandler#using-environment-variables-to-set-the-parameters)
 
 symfony_run_assets_install: true
 symfony_assets_options: '--no-interaction'
