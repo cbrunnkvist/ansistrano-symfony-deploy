@@ -1,7 +1,7 @@
 ansistrano-symfony-deploy [![Build Status](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy.svg?branch=master)](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy) 
 =========
 
-A set of [Ansible](http://docs.ansible.com/) tasks for deploying PHP applications developed using the Symfony framework onto *nix servers in a "Capistrano" fashion (releases, shared, current->releases/X).
+A set of [Ansible](http://docs.ansible.com/) tasks for deploying PHP applications developed using the Symfony framework (incl. flex) onto *nix servers in a "Capistrano" fashion (releases, shared, current->releases/X).
 
 This role is more or less just a collection of the most common post-installation setup tasks (i.e. getting a Composer executable, installing dependencies and autoloader, perform cache warming, deploy migrations etc). It does not itself deal with setting up the directory structures or getting files onto your servers - that part is handled by the more generic `ansistrano-deploy` role.
 
