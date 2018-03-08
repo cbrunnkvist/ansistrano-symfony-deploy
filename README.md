@@ -1,4 +1,4 @@
-ansistrano-symfony-deploy [![Build Status](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy.svg?branch=master)](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy) 
+ansistrano-symfony-deploy [![Build Status](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy.svg?branch=master)](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy)
 =========
 
 A set of [Ansible](http://docs.ansible.com/) tasks for deploying PHP applications developed using the Symfony framework (incl. flex) onto *nix servers in a "Capistrano" fashion (releases, shared, current->releases/X).
@@ -45,6 +45,32 @@ symfony_doctrine_options: '--no-interaction'
 
 symfony_run_mongodb_schema_update: false
 symfony_mongodb_options: ''
+```
+
+Hooks
+-----
+
+This role supports ansistrano like hooks before and after every task
+
+```YAML
+ansistrano_symfony_before_composer_tasks_file
+ansistrano_symfony_after_composer_tasks_file
+
+ansistrano_symfony_before_assets_tasks_file
+ansistrano_symfony_after_assets_tasks_file
+
+ansistrano_symfony_before_assetic_tasks_file
+ansistrano_symfony_after_assetic_tasks_file
+
+ansistrano_symfony_before_cache_tasks_file
+ansistrano_symfony_after_cache_tasks_file
+
+ansistrano_symfony_before_doctrine_tasks_file
+ansistrano_symfony_after_doctrine_tasks_file
+
+ansistrano_symfony_before_mongodb_tasks_file
+ansistrano_symfony_after_mongodb_tasks_file
+
 ```
 
 In addition to this, please also refer to the [list of variables used by ansistrano](https://github.com/ansistrano/deploy#role-variables).
