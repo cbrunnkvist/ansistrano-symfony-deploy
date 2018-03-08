@@ -6,7 +6,7 @@ galaxy_info:
   author: Conny Brunnkvist
   description: Common post-deploy tasks for Symfony projects
   license: MIT
-  min_ansible_version: 1.8
+  min_ansible_version: 2.4
   platforms:
     - name: GenericUNIX
       versions:
@@ -14,4 +14,8 @@ galaxy_info:
 
   galaxy_tags:
     - web
-    - Symfony
+    - ansistrano
+    - ansistrano-deploy
+    - deploy
+    - deployment
+    - symfony
