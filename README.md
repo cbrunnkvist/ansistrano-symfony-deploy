@@ -1,5 +1,7 @@
-ansistrano-symfony-deploy [![Build Status](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy.svg?branch=master)](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy)
+ansistrano-symfony-deploy
 =========
+
+[![Build Status](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy.svg?branch=master)](https://travis-ci.org/cbrunnkvist/ansistrano-symfony-deploy)
 
 A set of [Ansible](http://docs.ansible.com/) tasks for deploying PHP applications developed using the Symfony framework (incl. flex) onto *nix servers in a "Capistrano" fashion (releases, shared, current->releases/X).
 
