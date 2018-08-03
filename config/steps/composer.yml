@@ -7,7 +7,7 @@
   shell: "{{symfony_composer_path}} selfupdate --no-interaction"
   when: composer_file.stat.exists and symfony_composer_self_update
   register: composer_self_update_result
-  changed_when: composer_self_update_result.stderr | search('Updating')
+  changed_when: composer_self_update_result.stderr is search('Updating')
 
 - name: Install composer
   get_url: url=https://getcomposer.org/composer.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
@@ -16,4 +16,4 @@
   shell: chdir={{ansistrano_release_path.stdout}}
     export SYMFONY_ENV={{symfony_env}} APP_ENV={{symfony_env}} && {{symfony_php_path}} {{symfony_composer_path}} install {{symfony_composer_options}}
   register: composer_install_result
-  changed_when: composer_install_result.stderr | search('- \w+ing ')
+  changed_when: composer_install_result.stderr is search('- \w+ing ')
