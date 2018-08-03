@@ -6,6 +6,7 @@ symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
+symfony_composer_self_update_privileged: false # Allows to run composer self-update as privileged user
 
 symfony_run_assets_install: true
 symfony_assets_options: '--no-interaction'
