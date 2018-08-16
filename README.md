@@ -93,7 +93,7 @@ In order to get around the parallel exection, you can do the following:
 Dependencies
 ------------
 
-- [carlosbuenosvinos.ansistrano-deploy](https://galaxy.ansible.com/list#/roles/1387)
+- [ansistrano.ansistrano_deploy](https://github.com/ansistrano/deploy)
 
 Installing from the command line via `ansible-galaxy install cbrunnkvist.ansistrano-symfony-deploy` should pull down the external role as a dependency, so no extra step neccessary.
 

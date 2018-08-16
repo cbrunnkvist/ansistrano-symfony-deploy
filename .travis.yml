@@ -26,7 +26,7 @@ install:
   - ansible --version
   - printf '[defaults]\nroles_path=../' > ansible.cfg
   - ln -s ./ansistrano-symfony-deploy ../cbrunnkvist.ansistrano-symfony-deploy
-  - ansible-galaxy install carlosbuenosvinos.ansistrano-deploy --force
+  - ansible-galaxy install ansistrano.deploy --force
 
 script:
   - ansible-playbook -i test/inventory test/symfony_$SYMFONY_VERSION.yml --syntax-check
