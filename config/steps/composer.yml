@@ -5,9 +5,22 @@
 
 - name: Run composer self-update
   shell: "{{symfony_composer_path}} selfupdate --no-interaction"
-  when: composer_file.stat.exists and symfony_composer_self_update
+  when:
+    - composer_file.stat.exists
+    - symfony_composer_self_update
+    - not symfony_composer_self_update_privileged
   register: composer_self_update_result
   changed_when: composer_self_update_result.stderr is search('Updating')
+
+- name: Run composer self-update as privileged user
+  shell: "{{symfony_composer_path}} selfupdate --no-interaction"
+  when:
+    - composer_file.stat.exists
+    - symfony_composer_self_update
+    - symfony_composer_self_update_privileged
+  register: composer_self_update_result
+  become: yes
+  changed_when: composer_self_update_result.stderr | search('Updating')
 
 - name: Install composer
   get_url: url=https://getcomposer.org/composer.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
