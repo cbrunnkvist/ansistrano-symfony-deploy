@@ -9,7 +9,7 @@
     ansistrano_git_repo: https://github.com/symfony/symfony-standard.git
     ansistrano_git_branch: 2.7
 
-    symfony_php_path: php7.0
+    symfony_php_path: php7.2
 
     ansistrano_allow_anonymous_stats: false
 

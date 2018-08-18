@@ -12,6 +12,12 @@ env:
   - ANSIBLE_VERSION: latest
     PHP_VERSION: 7.2
     SYMFONY_VERSION: 41
+  - ANSIBLE_VERSION: "2.4.6"
+    PHP_VERSION: 7.2
+    SYMFONY_VERSION: 41
+  - ANSIBLE_VERSION: "2.5.8"
+    PHP_VERSION: 7.2
+    SYMFONY_VERSION: 41
 
 before_install:
   - sudo add-apt-repository -y ppa:ondrej/php
