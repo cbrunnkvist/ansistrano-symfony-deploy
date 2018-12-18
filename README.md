@@ -25,12 +25,14 @@ The `defaults` vars declared in this module:
 symfony_env: prod
 symfony_php_path: php # The PHP executable to use for all command line tasks
 
-symfony_console_path: 'app/console' # If using Symfony 3+ this should be 'bin/console'
+symfony_install_custom_composer: false # Forced to false to download latest composer release
+symfony_install_custom_composer_version: '1.8.0' # Not used until {{symfony_install_custom_composer}} is true
+symfony_install_custom_composer_version_url: "/download/{{ symfony_composer_version }}/composer.phar"
 
 symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
-symfony_composer_self_update: true # Always attempt a composer self-update
+symfony_composer_self_update: true # Always attempt a composer self-update, turn it to false if {{symfony_install_custom_composer}} is true
 
 symfony_run_assets_install: true
 symfony_assets_options: '--no-interaction'
@@ -41,6 +43,12 @@ symfony_assetic_options: '--no-interaction'
 symfony_run_cache_clear_and_warmup: true
 symfony_cache_options: ''
 
+symfony_console_path: 'app/console' # If using Symfony 3+ this should be 'bin/console'
+
+###############################################################################
+# Enable the schema/migration tasks ONLY if you have 1 and only 1 host in your
+# inventory, since running migrations in parallel might lead to data corruption.
+# (see README.md for more details)
 ###############################################################################
 symfony_run_doctrine_migrations: false
 symfony_doctrine_options: '--no-interaction'
@@ -48,6 +56,10 @@ symfony_doctrine_options: '--no-interaction'
 symfony_run_mongodb_schema_update: false
 symfony_mongodb_options: ''
 ```
+
+If you want to install custom composer release, you have to set `symfony_install_custom_composer: true` and to define which release you want to install in `symfony_install_custom_composer_version` variable.
+
+Once this is done, do not forget to turn `symfony_composer_self_update: false` to prevent any unwanted composer.phar update.
 
 Hooks
 -----

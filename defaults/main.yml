@@ -2,10 +2,11 @@
 symfony_env: prod
 symfony_php_path: php # The PHP executable to use for all command line tasks
 
+symfony_install_custom_composer: false # Forced to false to download latest composer release
+symfony_install_custom_composer_version: '1.8.0' # Not used until {{symfony_install_custom_composer}} is true
+symfony_install_custom_composer_version_url: "/download/{{ symfony_composer_version }}/composer.phar"
+
 symfony_run_composer: true
-symfony_composer_version: '1.8.0'
-symfony_composer_version_url: "/download/{{ symfony_composer_version }}/composer.phar" # Refer to release direct url 
-symfony_composer_version_installation: false
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
@@ -19,7 +20,7 @@ symfony_assetic_options: '--no-interaction'
 symfony_run_cache_clear_and_warmup: true
 symfony_cache_options: ''
 
-symfony_console_path: 'app/console'
+symfony_console_path: 'app/console' # If using Symfony 3+ this should be 'bin/console'
 
 ###############################################################################
 # Enable the schema/migration tasks ONLY if you have 1 and only 1 host in your
