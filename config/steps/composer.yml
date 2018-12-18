@@ -10,7 +10,7 @@
   changed_when: composer_self_update_result.stderr is search('Updating')
 
 - name: Install composer
-  get_url: url=https://getcomposer.org/composer.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
+  get_url: url=https://getcomposer.org/{{ symfony_composer_version_url | default('/composer.phar') }} dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
 
 - name: Run composer install
   shell: chdir={{ansistrano_release_path.stdout}}
