@@ -4,7 +4,7 @@ symfony_php_path: php # The PHP executable to use for all command line tasks
 
 symfony_install_custom_composer: false # Forced to false to download latest composer release
 symfony_install_custom_composer_version: '1.8.0' # Not used until {{symfony_install_custom_composer}} is true
-symfony_install_custom_composer_version_url: "/download/{{ symfony_composer_version }}/composer.phar"
+symfony_install_custom_composer_version_url: "/download/{{ symfony_install_custom_composer_version }}/composer.phar"
 
 symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
