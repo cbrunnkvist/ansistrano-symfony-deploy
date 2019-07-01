@@ -5,7 +5,7 @@
 
 - name: Run composer self-update
   shell: "{{symfony_composer_path}} selfupdate --no-interaction"
-  when: composer_file.stat.exists and symfony_composer_self_update
+  when: composer_file.stat.exists and symfony_composer_self_update|bool
   register: composer_self_update_result
   changed_when: composer_self_update_result.stderr is search('Updating')
 
