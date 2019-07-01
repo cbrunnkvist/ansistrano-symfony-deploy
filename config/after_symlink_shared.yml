@@ -1,41 +1,41 @@
 - include_tasks: "{{ ansistrano_symfony_before_composer_tasks_file | default('steps/empty.yml') }}"
 
 - import_tasks: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/composer.yml"
-  when: symfony_run_composer
+  when: symfony_run_composer|bool
 
 - include_tasks: "{{ ansistrano_symfony_after_composer_tasks_file | default('steps/empty.yml') }}"
 
 - include_tasks: "{{ ansistrano_symfony_before_assets_tasks_file | default('steps/empty.yml') }}"
 
 - import_tasks: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/assets.yml"
-  when: symfony_run_assets_install
+  when: symfony_run_assets_install|bool
 
 - include_tasks: "{{ ansistrano_symfony_after_assets_tasks_file | default('steps/empty.yml') }}"
 
 - include_tasks: "{{ ansistrano_symfony_before_assetic_tasks_file | default('steps/empty.yml') }}"
 
 - import_tasks: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/assetic.yml"
-  when: symfony_run_assetic_dump
+  when: symfony_run_assetic_dump|bool
 
 - include_tasks: "{{ ansistrano_symfony_after_assetic_tasks_file | default('steps/empty.yml') }}"
 
 - include_tasks: "{{ ansistrano_symfony_before_cache_tasks_file | default('steps/empty.yml') }}"
 
 - import_tasks: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/cache.yml"
-  when: symfony_run_cache_clear_and_warmup
+  when: symfony_run_cache_clear_and_warmup|bool
 
 - include_tasks: "{{ ansistrano_symfony_after_cache_tasks_file | default('steps/empty.yml') }}"
 
 - include_tasks: "{{ ansistrano_symfony_before_doctrine_tasks_file | default('steps/empty.yml') }}"
 
 - import_tasks: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/doctrine.yml"
-  when: symfony_run_doctrine_migrations
+  when: symfony_run_doctrine_migrations|bool
 
 - include_tasks: "{{ ansistrano_symfony_after_doctrine_tasks_file | default('steps/empty.yml') }}"
 
 - include_tasks: "{{ ansistrano_symfony_before_mongodb_tasks_file | default('steps/empty.yml') }}"
 
 - import_tasks: "../../cbrunnkvist.ansistrano-symfony-deploy/config/steps/mongodb.yml"
-  when: symfony_run_mongodb_schema_update
+  when: symfony_run_mongodb_schema_update|bool
 
 - include_tasks: "{{ ansistrano_symfony_after_mongodb_tasks_file | default('steps/empty.yml') }}"
