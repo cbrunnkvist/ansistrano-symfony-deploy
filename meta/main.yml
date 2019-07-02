@@ -15,7 +15,6 @@ galaxy_info:
   galaxy_tags:
     - web
     - ansistrano
-    - ansistrano-deploy
     - deploy
     - deployment
     - symfony
