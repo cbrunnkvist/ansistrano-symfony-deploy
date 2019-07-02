@@ -1,0 +1,19 @@
+---
+- name: TEST | symfony 4.3
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    ansistrano_deploy_to: /tmp/sf43
+    ansistrano_deploy_via: git
+    ansistrano_git_repo: https://github.com/symfony/skeleton.git
+    ansistrano_git_branch: 4.3
+
+    symfony_php_path: php7.2
+    symfony_console_path: 'bin/console'
+    symfony_run_assetic_dump: false
+
+    ansistrano_allow_anonymous_stats: false
+
+  roles:
+    - cbrunnkvist.ansistrano-symfony-deploy
