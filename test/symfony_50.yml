@@ -9,7 +9,7 @@
     ansistrano_git_repo: https://github.com/symfony/skeleton.git
     ansistrano_git_branch: 5.0
 
-    symfony_php_path: php7.2
+    symfony_php_path: php7.4
     symfony_console_path: 'bin/console'
     symfony_run_assetic_dump: false
 
