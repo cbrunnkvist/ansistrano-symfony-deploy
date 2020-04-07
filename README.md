@@ -31,6 +31,7 @@ symfony_run_composer: true
 symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
+symfony_composer_version: 1.10.1 # Install specific composer version. If this variable is not set the last stable version is installed
 
 symfony_run_assets_install: true
 symfony_assets_options: '--no-interaction'
