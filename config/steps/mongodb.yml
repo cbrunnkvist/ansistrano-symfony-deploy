@@ -2,4 +2,3 @@
 - name: Update MongoDB schema
   shell: chdir={{ansistrano_release_path.stdout}}
     SYMFONY_ENV={{symfony_env}} APP_ENV={{symfony_env}} {{symfony_php_path}} {{symfony_console_path}} doctrine:mongodb:schema:update {{symfony_mongodb_options}}
-  run_once: true
