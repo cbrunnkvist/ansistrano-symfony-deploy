@@ -11,35 +11,20 @@
 
 - name: Install stable composer
   get_url: url=https://getcomposer.org/composer-stable.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
-  when: symfony_composer_version is not defined
+  when: symfony_composer_version is not defined and symfony_composer_channel is not defined
 
 - name: Install composer {{symfony_composer_version}}
   get_url: url=https://getcomposer.org/download/{{symfony_composer_version}}/composer.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
   when: symfony_composer_version is defined
 
+- name: Install composer installer
+  get_url: url=https://composer.github.io/installer dest={{ansistrano_deploy_to}}/composer-installer.php mode=0755 validate_certs=no force=no
+  when: symfony_composer_channel is defined
+
 - name: Install composer {{symfony_composer_channel}}
-  shell: |
-    #!/bin/sh
-    
-    chdir {{symfony_composer_path}}
-  
-    # https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
-  
-    EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')"
-    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
-    
-    if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]
-    then
-    >&2 echo 'ERROR: Invalid installer checksum'
-    rm composer-setup.php
-    exit 1
-    fi
-  
-    php composer-setup.php --quiet --{{symfony_composer_channel}}
-    RESULT=$?
-    rm composer-setup.php
-    exit $RESULT
+  shell:
+    cmd: sh composer-installer.php --quiet --{{symfony_composer_channel}}
+    chdir: {{ansistrano_deploy_to}}
   when: symfony_composer_channel is defined
 
 - name: Run composer install
