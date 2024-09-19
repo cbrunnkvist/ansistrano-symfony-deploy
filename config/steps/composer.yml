@@ -24,7 +24,7 @@
 - name: Install composer {{symfony_composer_channel}}
   shell:
     cmd: sh composer-installer.php --quiet --{{symfony_composer_channel}}
-    chdir: {{ansistrano_deploy_to}}
+    chdir: "{{ansistrano_deploy_to}}"
   when: symfony_composer_channel is defined
 
 - name: Run composer install
