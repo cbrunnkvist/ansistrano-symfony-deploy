@@ -18,7 +18,7 @@
   when: symfony_composer_version is defined
 
 - name: Install composer installer
-  get_url: url=https://composer.github.io/installer dest={{ansistrano_deploy_to}}/composer-installer.php mode=0755 validate_certs=no force=no
+  get_url: url=https://getcomposer.org/installer dest={{ansistrano_deploy_to}}/composer-installer.php mode=0755 validate_certs=no force=no
   when: symfony_composer_channel is defined
 
 - name: Install composer {{symfony_composer_channel}}
