@@ -32,7 +32,7 @@ symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
 symfony_composer_version: 1.10.1 # Install specific composer version. If this variable is not set the latest stable version is installed
-symfony_composer_channel: 2.2 # Install specific composer channel. 
+symfony_composer_channel: 2.2 # (mutually exclusive to symfony_composer_version) Use the latest composer version from a specific release channel - see https://getcomposer.org/download/#download-channels for specifics
 
 symfony_run_assets_install: true
 symfony_assets_options: '--no-interaction'
