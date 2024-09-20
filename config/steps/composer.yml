@@ -5,7 +5,7 @@
 
 - name: Run composer self-update
   shell: "{{symfony_composer_path}} selfupdate --no-interaction"
-  when: composer_file.stat.exists and symfony_composer_self_update|bool
+  when: composer_file.stat.exists and symfony_composer_self_update | bool
   register: composer_self_update_result
   changed_when: composer_self_update_result.stderr is search('Updating')
 
@@ -15,7 +15,10 @@
 
 - name: Install composer {{symfony_composer_version}}
   get_url: url=https://getcomposer.org/download/{{symfony_composer_version}}/composer.phar dest={{symfony_composer_path}} mode=0755 validate_certs=no force=no
-  when: symfony_composer_version is defined
+  when:
+    - symfony_composer_version is defined
+    - not symfony_composer_self_update | bool
+    - not composer_file.stat.exists or symfony_composer_upgrade | bool
 
 - name: Install composer installer
   get_url: url=https://getcomposer.org/installer dest={{ansistrano_deploy_to}}/composer-installer.php mode=0755 validate_certs=no force=no
