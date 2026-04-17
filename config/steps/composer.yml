@@ -28,7 +28,7 @@
   when: symfony_composer_channel is defined
 
 - name: Run composer install
-  shell: chdir={{ansistrano_release_path.stdout}}
+  shell: chdir={{ansistrano_release_path}}
     export SYMFONY_ENV={{symfony_env}} APP_ENV={{symfony_env}} && {{symfony_php_path}} {{symfony_composer_path}} install {{symfony_composer_options}}
   register: composer_install_result
   changed_when: composer_install_result.stderr is search('- \w+ing ')
