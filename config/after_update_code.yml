@@ -2,5 +2,5 @@
 - name: Make way for shared paths / resources shared across releases
   file:
     state=absent
-    path={{ansistrano_release_path.stdout}}/{{item}}
+    path={{ansistrano_release_path}}/{{item}}
   with_items: ansistrano_shared_paths
