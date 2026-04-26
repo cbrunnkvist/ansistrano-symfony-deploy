@@ -7,11 +7,17 @@ symfony_composer_path: "{{ ansistrano_deploy_to }}/composer.phar"
 symfony_composer_options: '--no-dev --optimize-autoloader --no-interaction'
 symfony_composer_self_update: true # Always attempt a composer self-update
 
-symfony_run_assets_install: true
+symfony_run_assets_install: false
 symfony_assets_options: '--no-interaction'
 
-symfony_run_assetic_dump: true
+symfony_run_assetic_dump: false
 symfony_assetic_options: '--no-interaction'
+
+symfony_run_sass_build: false
+symfony_sass_options: ''
+
+symfony_run_asset_map_compile: false
+symfony_asset_map_options: ''
 
 symfony_run_cache_clear_and_warmup: true
 symfony_cache_options: ''

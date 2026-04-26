@@ -1,0 +1,4 @@
+---
+- name: Compile asset-map
+  shell: chdir={{ansistrano_release_path}}
+    SYMFONY_ENV={{symfony_env}} APP_ENV={{symfony_env}} {{symfony_php_path}} {{symfony_console_path}} asset-map:compile {{ symfony_asset_map_options }}

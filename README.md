@@ -34,11 +34,17 @@ symfony_composer_self_update: true # Always attempt a composer self-update
 symfony_composer_version: 1.10.1 # Install specific composer version. If this variable is not set the latest stable version is installed
 symfony_composer_channel: 2.2 # (mutually exclusive to symfony_composer_version) Use the latest composer version from a specific release channel - see https://getcomposer.org/download/#download-channels for specifics
 
-symfony_run_assets_install: true
+symfony_run_assets_install: false
 symfony_assets_options: '--no-interaction'
 
-symfony_run_assetic_dump: true
+symfony_run_assetic_dump: false
 symfony_assetic_options: '--no-interaction'
+
+symfony_run_sass_build: false
+symfony_sass_options: ''
+
+symfony_run_asset_map_compile: false
+symfony_asset_map_options: ''
 
 symfony_run_cache_clear_and_warmup: true
 symfony_cache_options: ''
@@ -65,6 +71,12 @@ ansistrano_symfony_after_assets_tasks_file
 
 ansistrano_symfony_before_assetic_tasks_file
 ansistrano_symfony_after_assetic_tasks_file
+
+ansistrano_symfony_before_sass_tasks_file
+ansistrano_symfony_after_sass_tasks_file
+
+ansistrano_symfony_before_asset_map_tasks_file
+ansistrano_symfony_after_asset_map_tasks_file
 
 ansistrano_symfony_before_cache_tasks_file
 ansistrano_symfony_after_cache_tasks_file
@@ -105,6 +117,7 @@ Example playbook
 As a bare minimum, you probably need to declare the `ansistrano_deploy_from` and `ansistrano_deploy_to` variables in your play. Ansistrano defaults to using rsync from a local directory (again, see the [ansistrano docs](https://github.com/ansistrano/deploy)).
 
 Let's assume there is a `my-app-infrastructure/deploy.yml`:
+
 ```YAML
 ---
 - hosts: all
